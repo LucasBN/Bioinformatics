@@ -189,3 +189,24 @@ def downloadProtein(proteinID):
           data.append(line.decode("utf-8").replace('\n', ''))
       proteinString = (''.join(data[1::]))
     return proteinString
+
+# Returns a spliced RNA sequences with all introns removed and extrons concatenated
+def spliceRNA(sequence, introns):
+    finalSequence = sequence
+    for intron in introns:
+        finalSequence = finalSequence.replace(intron, '')
+    return finalSequence
+
+def locateSubseqeunce(sequence, subsequence):
+    position = []
+    counter = 0
+    for i in range(len(sequence)):
+        if sequence[i] == subsequence[counter]:
+            counter += 1
+            position.append(i+1)
+        if counter == len(subsequence):
+            break
+    return position
+
+# implement edit distance
+# http://rosalind.info/problems/edit/
