@@ -10,7 +10,7 @@ proteins = (convertAminoAcidsToProteins(readingFrames))
 
 
 # Create a file containing all proteins in the DNA_Sequence
-with open('proteins.txt', 'w') as f:
+with open('proteins/proteins.txt', 'w') as f:
     for protein in proteins:
         f.write("%s\n" % protein)
         pass
